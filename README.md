@@ -18,18 +18,13 @@ The principal method was published [here](http://pubs.acs.org/doi/abs/10.1021/pr
 
 See the [Wiki](https://github.com/PECAplus/PECAplus_cmd_line/wiki) for full documentation.
 
-See [Perseus-PluginPECA](https://github.com/PECAplus/Perseus-PluginPECA) for Perseus Plugin version documentation.
+See [Perseus-PluginPECA](https://github.com/PECAplus/Perseus-PluginPECA) for Perseus Plugin version.
 
 ## Requirements 
 
 ### Linux and OSX (Mac)
 
-Type `make` to install the software. The makefile automatically compiles the program.
-7 The executable will be in the “bin” folder. Binaries for 64-bit Windows are included. Due
-8 to limitations of GNU Make, the path of PECA is not allowed to contain any whitespace
-9 characters. The PECA software consists of the Markov chain Monte Carlo (MCMC) sam-
-10 pler and a Python script to summarize the results from the MCMC samples. The Python
-11 script requires Python 3.x and matplotlib.
+Type `make` to install the software. The makefile automatically compiles the program. The executable will be in the `bin` folder. Binaries for 64-bit Windows are included. Due to limitations of GNU Make, the path of PECA is not allowed to contain any whitespace characters. The PECA software consists of the Markov chain Monte Carlo (MCMC) sampler and a Python script to summarize the results from the MCMC samples. The Python script requires Python 3.x and matplotlib.
 
 ### Windows
 
