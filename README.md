@@ -2,7 +2,7 @@
 
 Command-Line Interface for PECA+
 
-<img src="https://github.com/PECAplus/Perseus-PluginPECA/wiki/images/PECALogo.png" align="left" width="200" height="150">
+<img src="https://github.com/PECAplus/PECAplus_cmd_line/wiki/images/PECALogo.png" align="left" width="200" height="150">
 
 
 
