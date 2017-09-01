@@ -20,7 +20,7 @@ See the [Wiki](https://github.com/PECAplus/PECAplus_cmd_line/wiki) for full docu
 
 See [Perseus-PluginPECA](https://github.com/PECAplus/Perseus-PluginPECA) for Perseus Plugin version.
 
-## Requirements 
+## Installing 
 
 ### Linux and OSX (Mac)
 
