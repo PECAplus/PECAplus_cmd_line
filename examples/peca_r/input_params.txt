@@ -1,0 +1,17 @@
+
+## The two files are RNA and protein input files
+FILE_X = infX.txt 0
+FILE_Y = TableS1LPSmh.txt
+
+## Indicate that there are two replicates in this data set
+N_REP = 2
+
+## Time points in the experiment
+TIME = 0 1 2 4 6 9 12
+
+## The smoothing parameters. 
+# SMOOTHING= 2.0 1.0
+
+N_BURN = 1000
+N_THIN = 10
+N_SAMPLE = 1000

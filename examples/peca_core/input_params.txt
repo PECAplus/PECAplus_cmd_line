@@ -1,0 +1,22 @@
+
+## The two files are RNA and protein input files
+FILE_X = RS_mRNA_match.txt 0
+FILE_Y = RS_prot_match.txt 0
+
+## Indicate there are two replicates in this data set
+N_REP = 2
+
+## We are purposefully giving an equally spaced time point for PECA modeling for a reason. 
+## When you have irregularly spaced time intervals, 
+## the rate ratios can be inaccurately estimated for larger intervals (30 min interval versus 8 hour interval)
+TIME = 0 1 2 3 4 5 6 7
+
+N_BURN = 1000
+N_THIN = 10
+N_SAMPLE = 1000
+
+## The smoothing parameters. 
+SMOOTHING= 2.0 1.0
+
+## For PECA−N only, the file that gives the pathway information.
+# MODULE= 9606.protein.actions.v10.5_ensg.txt
