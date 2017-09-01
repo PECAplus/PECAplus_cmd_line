@@ -41,7 +41,7 @@ Option::Option(const map<string,string>& opm) :
         throw runtime_error("SELECTION or CPS_table?");
     }
 
-    d_modulebool=ifstream(module().c_str());
+    d_modulebool=static_cast<bool>(ifstream(module().c_str()));
 
     iss.clear(); iss.str(d_opm.find("SYNTHESIS")->second);
     iss>>d_syndeg;
