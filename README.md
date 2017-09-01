@@ -28,7 +28,7 @@ Type `make` to install the software. The makefile automatically compiles the pro
 
 ### Windows
 
-Executables for 64-bit Windows are included here (<- insert link()).
+Executables for 64-bit Windows are included here (<- insert link().
 
 ## Bugs and Feedback
 
