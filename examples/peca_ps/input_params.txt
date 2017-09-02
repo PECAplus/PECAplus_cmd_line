@@ -1,3 +1,4 @@
+## using "peca_r" executables
 
 ## The three files are RNA and protein 
 ## (FILE_M for degradation proxy, FILE_Y for synthesis proxy)

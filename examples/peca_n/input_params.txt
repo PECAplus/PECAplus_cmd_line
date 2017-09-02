@@ -1,3 +1,4 @@
+## using "peca_core" executables
 
 ## The two files are RNA and protein input files
 FILE_X = RS_mRNA_match.txt 0

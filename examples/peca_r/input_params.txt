@@ -1,3 +1,4 @@
+## using "peca_r" executables
 
 ## The two files are RNA and protein input files
 FILE_X = infX.txt 0
