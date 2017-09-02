@@ -19,3 +19,5 @@ N_SAMPLE = 1000
 ## The smoothing parameters. 
 SMOOTHING= 2.0 1.0
 
+## For PECA−N only, the file that gives the network information.
+# MODULE= 9606.protein.actions.v10.5_ensg.txt
