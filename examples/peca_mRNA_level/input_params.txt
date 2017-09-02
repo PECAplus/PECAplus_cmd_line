@@ -1,6 +1,6 @@
 ## using "peca_core" executables
 
-## The two files are RNA and protein input files
+## For reference of RNA-level regulatory parameters, only mRNA data required here.
 FILE_X = 
 FILE_Y =RNA_normalized_filtered_LOWESSsmoothed_.txt 0
 
