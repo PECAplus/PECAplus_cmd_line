@@ -2,5 +2,5 @@
 
 FDR_cutoff=.05
 GO_term_table=GE_combinedpathways_human_ensg.txt
-BACKGROUND=20 5  # protein-level
+BACKGROUND=20 5
 # SYNTHESIS=1 #1 for GSA of synthesis, 0 for GSA of degradation, for PECA-R/PECA-PS's outputs only
