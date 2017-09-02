@@ -12,14 +12,6 @@ NPROT = sum(1 for line in open("x.txt"))-1
 NSAMPLES = sum(1 for line in open("s_RR"))
 
 
-###loglikelihood traceplot########################
-#plt.figure().set_size_inches(9, 9)
-plt.title('loglikelihood traceplot')
-plt.plot(range(1, NSAMPLES+1), [float(x) for x in open('s_loglike').readlines()])
-plt.savefig('trace_loglike.pdf')
-##################################################
-
-
 NREPS, NTIME = (int(x) for x in open("attr.txt").readline().rstrip().split('\t')[:2])
 #print(NREPS, NTIME)
 
@@ -103,6 +95,15 @@ with open('normX.txt') as xX, \
             +'\t'+'\t'.join(str(FDRMAP[x]) for x in CPR[i,]) \
             +'\t'+'\t'.join(str(FDRMAP_D[x]) for x in CPD[i,]) \
             +'\n')
+
+
+###loglikelihood traceplot########################
+#plt.figure().set_size_inches(9, 9)
+plt.title('loglikelihood traceplot')
+plt.plot(range(1, NSAMPLES+1), [float(x) for x in open('s_loglike').readlines()])
+plt.savefig('trace_loglike.pdf')
+##################################################
+
 
 EFSH = dict()
 XAX = []
