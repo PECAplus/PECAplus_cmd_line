@@ -1,6 +1,6 @@
 ## using "peca_core" executables
 
-## For reference of RNA-level regulatory parameters, only mRNA data required here.
+## For inference of RNA-level regulatory parameters, only RNA data required here.
 FILE_X = 
 FILE_Y =RNA_normalized_filtered_LOWESSsmoothed_.txt 0
 
