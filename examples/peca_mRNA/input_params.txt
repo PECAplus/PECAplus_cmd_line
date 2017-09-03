@@ -24,4 +24,5 @@ N_SAMPLE = 1000
 SMOOTHING= 2.0 1.0
 
 ## The file that gives the network information.
+## A list of undirected edges.
 MODULE= 9606.protein.actions.v10.5_ensg.txt
