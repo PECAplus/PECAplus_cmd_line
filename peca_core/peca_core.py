@@ -45,18 +45,20 @@ for key in SORTKEY:
 with open('imputex.txt') as xX, \
         open('imputey.txt') as yY, \
         open('data_R_CPS.txt', 'w') as cp_:
-    cp_.write(xX.readline().rstrip().split('\t', 1)[1] \
-            +'\t'+yY.readline().rstrip().split('\t', 1)[1] \
-            +'\t'+'\t'.join(['R'+str(i) for i in range(NTIME-1)]) \
-            #+'\t'+'\t'.join(['CPS'+str(i) for i in range(1, NTIME-1)]) \
-            +'\t'+'\t'.join(['signedCPS'+str(i) for i in range(1, NTIME-1)]) \
-            +'\t'+'\t'.join(['FDR'+str(i) for i in range(1, NTIME-1)]) \
-            +'\n')
+    #cp_.write(xX.readline().rstrip().split('\t', 1)[1] \
+    #        +'\t'+yY.readline().rstrip().split('\t', 1)[1] \
+    cp_.write('\t'.join(z+"_X"+str(int(n/NTIME))+"t"+str(n%NTIME) \
+        for n, z in enumerate(xX.readline().rstrip().split('\t')[1:])) \
+        +'\t'+'\t'.join(z+"_Y"+str(int(n/NTIME))+"t"+str(n%NTIME) \
+        for n, z in enumerate(yY.readline().rstrip().split('\t')[1:])) \
+        +'\t'+'\t'.join(['R'+str(i) for i in range(NTIME-1)]) \
+        +'\t'+'\t'.join(['signedCPS'+str(i) for i in range(1, NTIME-1)]) \
+        +'\t'+'\t'.join(['FDR'+str(i) for i in range(1, NTIME-1)]) \
+        +'\n')
     for i in range(NPROT):
         cp_.write(xX.readline().rstrip() \
             +'\t'+yY.readline().rstrip().split('\t', 1)[1] \
             +'\t'+'\t'.join(str(x) for x in RR[i,]) \
-            #+'\t'+'\t'.join(str(x) for x in CPS[i,]) \
             +'\t'+'\t'.join(str(x*(1 if RR[i, n] > RR[i, n-1] else -1)) \
             for n, x in enumerate(CPS[i,], 1)) \
             +'\t'+'\t'.join(str(FDRMAP[x]) for x in CPS[i,]) \

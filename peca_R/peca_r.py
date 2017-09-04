@@ -72,16 +72,22 @@ with open('normX.txt') as xX, \
         open('normH.txt') as hH, \
         (open('normM.txt') if MPATH else open('normH.txt')) as mM, \
         open('data_R_CPS.txt', 'w') as cp_:
-    cp_.write(xX.readline().rstrip().split('\t', 1)[1] \
-            +('\t'+mM.readline().rstrip().split('\t', 1)[1] if MPATH else '') \
-            +'\t'+hH.readline().rstrip().split('\t', 1)[1] \
-            +'\t'+'\t'.join(['R'+str(i) for i in range(NTIME-1)]) \
-            +'\t'+'\t'.join(['D'+str(i) for i in range(NTIME-1)]) \
-            +'\t'+'\t'.join(['signedCPS'+str(i) for i in range(1, NTIME-1)]) \
-            +'\t'+'\t'.join(['signedCPD'+str(i) for i in range(1, NTIME-1)]) \
-            +'\t'+'\t'.join(['FDR_S'+str(i) for i in range(1, NTIME-1)]) \
-            +'\t'+'\t'.join(['FDR_D'+str(i) for i in range(1, NTIME-1)]) \
-            +'\n')
+    #cp_.write(xX.readline().rstrip().split('\t', 1)[1] \
+    #        +('\t'+mM.readline().rstrip().split('\t', 1)[1] if MPATH else '') \
+    #        +'\t'+hH.readline().rstrip().split('\t', 1)[1] \
+    cp_.write('\t'.join(z+"_X"+str(int(n/NTIME))+"t"+str(n%NTIME) \
+        for n, z in enumerate(xX.readline().rstrip().split('\t')[1:])) \
+        +('\t'+'\t'.join(z+"_M"+str(int(n/NTIME))+"t"+str(n%NTIME) \
+        for n, z in enumerate(mM.readline().rstrip().split('\t')[1:])) if MPATH else '') \
+        +'\t'+'\t'.join(z+"_Y"+str(int(n/NTIME))+"t"+str(n%NTIME) \
+        for n, z in enumerate(hH.readline().rstrip().split('\t')[1:])) \
+        +'\t'+'\t'.join(['R'+str(i) for i in range(NTIME-1)]) \
+        +'\t'+'\t'.join(['D'+str(i) for i in range(NTIME-1)]) \
+        +'\t'+'\t'.join(['signedCPS'+str(i) for i in range(1, NTIME-1)]) \
+        +'\t'+'\t'.join(['signedCPD'+str(i) for i in range(1, NTIME-1)]) \
+        +'\t'+'\t'.join(['FDR_S'+str(i) for i in range(1, NTIME-1)]) \
+        +'\t'+'\t'.join(['FDR_D'+str(i) for i in range(1, NTIME-1)]) \
+        +'\n')
     for i in range(NPROT):
         cp_.write(xX.readline().rstrip() \
             +('\t'+mM.readline().rstrip().split('\t', 1)[1] if MPATH else '') \
