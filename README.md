@@ -24,7 +24,7 @@ See [Perseus-PluginPECA](https://github.com/PECAplus/Perseus-PluginPECA) for Per
 
 ### Linux and OSX (Mac)
 
-Type `make` to install the software. The makefile automatically compiles the program. The executable will be in the `bin` folder. Binaries for 64-bit Windows are included. Due to limitations of GNU Make, the path of PECA is not allowed to contain any whitespace characters. The PECA software consists of the Markov chain Monte Carlo (MCMC) sampler and a Python script to summarize the results from the MCMC samples. The Python script requires Python 3.x and matplotlib.
+Type `make` to install the software. The makefile automatically compiles the program. The executable will be in the `bin` folder. Binaries for 64-bit Windows are included. Due to limitations of GNU Make, the path of PECA is not allowed to contain any whitespace characters. The PECA software consists of the Markov chain Monte Carlo (MCMC) sampler and a Python script to summarize the results from the MCMC samples. The Python script requires Python 3.x and [matplotlib](https://matplotlib.org/).
 
 ### Windows
 
