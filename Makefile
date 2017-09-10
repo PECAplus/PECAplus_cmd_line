@@ -13,7 +13,7 @@ peca_gsa_bin:
 	    $(MAKE) 
 
 nlopt:
-	cd $(CURDIR)/nlopt_dir/nlopt-2.4.2/;\
-	    ./configure --prefix=$(CURDIR)/nlopt_dir/nlopt;\
+	cd $(CURDIR)/include_dir/nlopt-2.4.2/;\
+	    ./configure --prefix=$(CURDIR)/include_dir/nlopt;\
 	    $(MAKE) install
 
