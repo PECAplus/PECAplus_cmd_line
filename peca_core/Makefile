@@ -1,4 +1,4 @@
-all: bin/peca
+all: peca_core_bin
 
 objs = Pre Mcmc main data Option print Module Est
 objs := $(addsuffix .o, $(objs))
@@ -6,7 +6,7 @@ objs := $(addprefix src/, $(objs))
 CXXFLAGS = -Wall -O3 -I. -std=c++0x -Inlopt/include -I../include_dir
 
 
-bin/peca: nlopt $(objs)
+peca_core_bin: nlopt $(objs)
 	$(CXX) $(objs) -o $@ -Lnlopt/lib -lnlopt 
 
 nlopt:
@@ -16,4 +16,4 @@ nlopt:
 
 .PHONY : clean
 clean :
-	$(RM) bin/peca $(objs)
+	$(RM) peca_core_bin $(objs)
