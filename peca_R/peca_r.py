@@ -149,10 +149,12 @@ with PdfPages('mRNAprot.pdf') as pdf, \
         open('normH.txt') as hH, \
         (open('normM.txt') if MPATH else open('normH.txt')) as mM:
     PR = 2
+    logHY='log(protein) '
     if MPATH:
         PR = 3
         mm.readline()
         mM.readline()
+        logHY='log(H) '
     xx.readline()
     hh.readline()
     xX.readline()
@@ -196,7 +198,7 @@ with PdfPages('mRNAprot.pdf') as pdf, \
         plt.ylim(0)
 
         for j in range(NREPS):
-            plt.subplot(PR, NREPS+2, NREPS+3+j).set_title('log(H) '+str(j+1))
+            plt.subplot(PR, NREPS+2, NREPS+3+j).set_title(logHY+str(j+1))
             plt.ylim(np.nanmin(h), np.nanmax(h))
             plt.scatter(range(NTIME), h[NTIME*j:NTIME*(j+1)], c='k')
             plt.scatter(range(NTIME), H[NTIME*j:NTIME*(j+1)], \
