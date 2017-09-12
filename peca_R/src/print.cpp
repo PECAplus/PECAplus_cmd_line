@@ -3,6 +3,7 @@
 #include"main.hpp"
 #include"Option.hpp"
 #include"Pre.hpp"
+#include"Module.hpp"
 
 
 void print_data(const Pre& pr,const string& str0)
@@ -55,6 +56,16 @@ void print_data(const Pre& pr,const string& str0)
                 ofs<<'\n';
             }
         }
+    }
+}
+
+
+void print_adj(const Module& mo,const string& str0)
+{
+    ofstream ofs("Adjacency_list.txt");
+    for (unsigned i=0;i<mo.adj().size();i++) {
+        copy(mo.adj().at(i).begin(),mo.adj().at(i).end(),ostream_iterator<int> (ofs," "));
+        ofs<<'\n';
     }
 }
 

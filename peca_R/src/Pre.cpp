@@ -7,7 +7,7 @@
 #include <boost/tokenizer.hpp>
 
 using boost::lexical_cast;
-typedef boost::tokenizer<boost::char_separator<char>> tokenizer;
+typedef boost::tokenizer<boost::char_separator<char> > tokenizer;
 typedef multimap<string,Row*>::const_iterator mmit;
 typedef multimap<string,const Row*>::const_iterator cmmit;
 
@@ -461,7 +461,7 @@ void Pre::setAll()
         }
     }
     if (not op().xbool()) {
-        for (int g=0;g<nprot();g++) for (int l=0;l<op().nc();l++) d_xx.at(g).at(l)=1;
+        for (int g=0;g<nprot();g++) for (int l=0;l<op().nc();l++) d_xx.at(g).at(l)=0;
     }
 
 }
@@ -516,6 +516,7 @@ void Pre::impute_x()
             vvec.at(p).at(j) += pow(xxp.at(j*op().nt()+t)-mvec.at(p).at(j),2);
         }
         vvec.at(p).at(j) /= nj-1;
+        if (vvec.at(p).at(j)==0) vvec.at(p).at(j)=1;
         for (int t=0;t<op().nt();t++) if (obs(xxp.at(j*op().nt()+t))) {
             d_xx.at(p).at(j*op().nt()+t) -= mvec.at(p).at(j);
             d_xx.at(p).at(j*op().nt()+t) /= sqrt(vvec.at(p).at(j));
@@ -655,6 +656,7 @@ void Pre::impute_y(const char c)
                 vvec.at(p).at(q).at(j) += pow(yMHpq.at(j*op().nt()+t)-mvec.at(p).at(q).at(j),2);
             }
             vvec.at(p).at(q).at(j) /= nj-1;
+            if (vvec.at(p).at(q).at(j)==0) vvec.at(p).at(q).at(j)=1;
             for (int t=0;t<op().nt();t++) if (obs(yMHpq.at(j*op().nt()+t))) {
                 d_yMH.at(p).at(q).at(j*op().nt()+t) -= mvec.at(p).at(q).at(j);
                 d_yMH.at(p).at(q).at(j*op().nt()+t) /= sqrt(vvec.at(p).at(q).at(j));

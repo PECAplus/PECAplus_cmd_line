@@ -11,6 +11,7 @@
 Option set_param(const string& filepath,Module& mo);
 
 void print_data(const Pre& pre,const string& str0);
+void print_adj(const Module& mo,const string& str0);
 void posterior_mean(const int nMCsamples, const vector<string>& param_id);
 
 int main(int /*argc*/, char** argv)
@@ -31,6 +32,12 @@ int main(int /*argc*/, char** argv)
 
     Mcmc mc(pr);
 
+    if (mo.modulebool()) {
+        mo.module_data(pr.pid());
+        print_adj(mo,"");
+        Est es(mc,mo);
+        Mcmc mc1(pr,es.varphiR(),es.varphiD());
+    }
 
     ofstream attr_ofs("attr.txt");
     attr_ofs<<op.nrep()<<'\t'<<op.nt()<<'\t'<<mc.a_tauH()<<'\t'<<mc.b_tauH()<<'\t'<<mc.a_tauM()<<'\t'<<mc.b_tauM();

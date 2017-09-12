@@ -8,10 +8,10 @@ Option::Option(const map<string,string>& opm) :
     d_opm(opm),d_xbool(true),d_Mbool(false),d_log_x(true),d_log_m(true),d_log_h(true),
     d_smooth(false),d_level(1)
 {
-    istringstream iss(d_opm.find("FILE_X")->second);
-    iss>>d_filex;
-    if (not ifstream(filex().c_str())) throw runtime_error("x");
-    iss>>d_log_x;
+    istringstream iss(d_opm.find("FILE_Y")->second);
+    iss>>d_fileH;
+    if (not ifstream(fileH().c_str())) throw runtime_error("H");
+    iss>>d_log_h;
 
     if (not d_opm.find("FILE_M")->second.empty()) {
         d_Mbool=true;
@@ -21,10 +21,11 @@ Option::Option(const map<string,string>& opm) :
         iss>>d_log_m;
     }
 
-    iss.clear(); iss.str(d_opm.find("FILE_Y")->second);
-    iss>>d_fileH;
-    if (not ifstream(fileH().c_str())) throw runtime_error("H");
-    iss>>d_log_h;
+    iss.clear(); iss.str(d_opm.find("FILE_X")->second);
+    iss>>d_filex;
+    if (filex().empty()) d_filex=fileH();
+    if (not ifstream(filex().c_str())) throw runtime_error("x");
+    iss>>d_log_x;
 
     if (filex()==fileH()) d_xbool=false;
 

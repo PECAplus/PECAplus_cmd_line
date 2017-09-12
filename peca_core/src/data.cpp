@@ -33,11 +33,8 @@ Option set_param(const string& filepath,Module& mo)
     opm["N_REP"];
     opm["TIME"];
     opm["N_BURN"]; opm["N_THIN"]; opm["N_SAMPLE"];
-    opm["LEVEL"];
-    opm["MIN_CORREL"];
-    opm["MODULE"]; opm["MODULE_SIZE"];
-    opm["PROTEIN_VARIANCE"]; opm["EXPERIMENTAL_DESIGN"];
     opm["SMOOTHING"];
+    opm["MODULE"];
 
     set<string> opset;
     for (string lstr,rstr;read_param(input_ifs,lstr,rstr,opm);opm[lstr]=rstr) {

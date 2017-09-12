@@ -32,14 +32,10 @@ Option set_param(const string& filepath,Module& mo)
     opm["FILE_M"];
     opm["FILE_Y"];
     opm["N_REP"];
-    opm["SMOOTHING"];
-    opm["TIME"]; opm["GP_TIME"];
+    opm["TIME"];
     opm["N_BURN"]; opm["N_THIN"]; opm["N_SAMPLE"];
-    opm["LEVEL"];
-    opm["MIN_CORREL"]; opm["MODULE"]; opm["MODULE_TYPE"];
-    opm["MRF_TYPE"]; opm["MODULE_SIZE"]; opm["MODULE_FREQ"]; 
-    opm["PROTEIN_VARIANCE"]; opm["EXPERIMENTAL_DESIGN"];
-
+    opm["SMOOTHING"];
+    opm["MODULE"];
     set<string> opset;
     for (string lstr,rstr;read_param(input_ifs,lstr,rstr,opm);opm[lstr]=rstr) {
         if (opset.find(lstr)!=opset.end()) throw runtime_error("Duplicate \""+lstr+" = \"");
@@ -50,12 +46,6 @@ Option set_param(const string& filepath,Module& mo)
 
     if (mo.modulebool()) {
         mo.setModule(opm.find("MODULE")->second);
-        mo.setModule_type(opm.find("MODULE_TYPE")->second);
-        //mo.setMrf(opm.find("MRF_TYPE")->second);
-        if (mo.module_type()=="group_list" or mo.module_type()=="go_list") {
-            mo.setModule_size(opm.find("MODULE_SIZE")->second);
-            mo.setModule_freq(opm.find("MODULE_FREQ")->second);
-        }
 
     }
 
