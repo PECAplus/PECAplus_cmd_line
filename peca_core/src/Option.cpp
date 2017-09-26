@@ -57,8 +57,6 @@ Option::Option(const map<string,string>& opm) :
     iss.clear(); iss.str(d_opm.find("N_SAMPLE")->second);
     iss>>d_ns;
 
-    iss.clear(); iss.str(d_opm.find("LEVEL")->second);
-    iss>>d_level;
 
     if (level()==2) {
         iss.clear(); iss.str(d_opm.find("MIN_CORREL")->second);
