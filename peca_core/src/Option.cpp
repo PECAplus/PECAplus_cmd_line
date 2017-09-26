@@ -40,13 +40,6 @@ Option::Option(const map<string,string>& opm) :
     d_timei=d_timep;
     for (unsigned i=0;i<timep().size();i++) d_timei.at(i)=i;
 
-    iss.clear(); iss.str(d_opm.find("PROTEIN_VARIANCE")->second);
-    iss>>d_protvar;
-
-    if (d_protvar=="adaptive") {
-        iss.clear(); iss.str(d_opm.find("EXPERIMENTAL_DESIGN")->second);
-        iss>>d_rep;
-    }
 
     iss.clear(); iss.str(d_opm.find("N_BURN")->second);
     iss>>d_nburn;
