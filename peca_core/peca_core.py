@@ -109,8 +109,8 @@ with PdfPages('mRNAprot.pdf') as pdf, \
         y = [(i if i != 'NA' else np.nan) for i in yy.readline().rstrip().split('\t')[1:]]
         y = np.array(y, dtype=float)
         Y = np.array(yY.readline().rstrip().split('\t')[1:], dtype=float)
-        if p > 10:
-            break
+        #if p > 10:
+        #    break
         plt.figure(figsize=((NREPS+1)*4, 2*4))
         plt.suptitle(linex.rstrip().split('\t', 1)[0])
         print('\x08'*99, p, '/', NPROT, end=' ')
