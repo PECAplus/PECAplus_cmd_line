@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
 
-NPROT = sum(1 for line in open("x.txt"))-1
+NPROT = sum(1 for line in open("X.txt"))-1
 NSAMPLES = sum(1 for line in open("s_RR"))
 
 
