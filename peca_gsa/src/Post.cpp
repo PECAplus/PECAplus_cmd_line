@@ -38,7 +38,7 @@ void Post::selection(vector<vector<int> >& sel,const vector<map<double,fdrs,grea
         const map<double,fdrs,greater<double> >& fdr_l(fdr.at(fdr.size()==1?0:l));
         sel.at(l).assign(d_pr.np(),0);
         for (unsigned p=0;p<d_pr.np();p++) {
-            if (fdr_l.find(up==-1 or d_up.at(l).at(p)==up?pr().cp().at(p).at(l):0)->second.fdr<d_op.FDRcut()) {
+            if (fdr_l.at(up==-1 or d_up.at(l).at(p)==up?pr().cp().at(p).at(l):0).fdr<d_op.FDRcut()) {
                 sel.at(l).at(p)=1;
                 if (pr().cp().at(p).at(l)<minCPS) minCPS=pr().cp().at(p).at(l);
             }

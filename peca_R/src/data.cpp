@@ -4,7 +4,6 @@
 #include"Module.hpp"
 #include"Option.hpp"
 
-
 bool read_param(ifstream& ifs,string& lstr,string& rstr,const map<string,string>& opm)
 {
     istringstream liss;
@@ -42,10 +41,10 @@ Option set_param(const string& filepath,Module& mo)
         opset.insert(lstr);
     }
 
-    mo.setModulebool(opm.find("MODULE")->second);
+    mo.setModulebool(opm.at("MODULE"));
 
     if (mo.modulebool()) {
-        mo.setModule(opm.find("MODULE")->second);
+        mo.setModule(opm.at("MODULE"));
 
     }
 

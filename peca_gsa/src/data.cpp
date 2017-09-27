@@ -29,11 +29,9 @@ Option set_param(const string& filepath)
     if (not input_ifs) throw runtime_error("can't open "+filepath);
 
     map<string,string> opm;
-    opm["GO_term_table"]; opm["FDR_cutoff"];
-    opm["SELECTION"]; 
+    opm["GO_term_table"];
+    opm["FDR_cutoff"];
     opm["BACKGROUND"];
-    opm["MODULE"];
-    opm["CPS_table"]; 
     opm["SYNTHESIS"]; 
 
     set<string> opset;

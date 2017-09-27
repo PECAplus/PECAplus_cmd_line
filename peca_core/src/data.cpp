@@ -42,11 +42,11 @@ Option set_param(const string& filepath,Module& mo)
         opset.insert(lstr);
     }
 
-    mo.setModulebool(opm.find("MODULE")->second);
+    mo.setModulebool(opm.at("MODULE"));
 
     if (mo.modulebool()) {
-        mo.setModule(opm.find("MODULE")->second);
-        //mo.setModule_size(opm.find("MODULE_SIZE")->second);
+        mo.setModule(opm.at("MODULE"));
+        //mo.setModule_size(opm.at("MODULE_SIZE"));
     }
 
     Option op(opm);
