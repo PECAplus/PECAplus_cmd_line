@@ -1,19 +1,13 @@
 all: peca_core_bin peca_r_bin peca_gsa_bin
 
-peca_core_bin: nlopt 
+peca_core_bin:
 	cd peca_core;\
 	    $(MAKE) 
 
-peca_r_bin: nlopt 
+peca_r_bin:
 	cd peca_r;\
 	    $(MAKE) 
 
 peca_gsa_bin:
 	cd peca_gsa;\
 	    $(MAKE) 
-
-nlopt:
-	cd $(CURDIR)/include_dir/nlopt-2.4.2/;\
-	    ./configure --prefix=$(CURDIR)/include_dir/nlopt;\
-	    $(MAKE) install
-
