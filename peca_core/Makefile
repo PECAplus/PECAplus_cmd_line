@@ -5,6 +5,7 @@ objs := $(addsuffix .o, $(objs))
 objs := $(addprefix src/, $(objs))
 CXXFLAGS = -Wall -O3 -I. -std=c++0x -I../include_dir/nlopt/include -I../include_dir
 
+$(objs): nlopt
 
 peca_core_bin: nlopt $(objs)
 	$(CXX) $(objs) -o $@ -L$(CURDIR)/../include_dir/nlopt/lib -lnlopt 
