@@ -29,9 +29,9 @@ void print_analysis(const Pre& pr,const Post& po)
     ofs<<"MaxSig(Up)\tMaxSig(Down)\tMax(Both)\tGO_id\tGO_name\tGO_size\tGO_size_background";
     if (po.op().modulebool()) ofs<<"\tGO_EdgeCount";
     ofs<<"\tmembers";
-    for (unsigned l=0;l<pr.nl();l++) ofs<<"\tUp("<<l+1<<")";
-    for (unsigned l=0;l<pr.nl();l++) ofs<<"\tDown("<<l+1<<")";
-    for (unsigned l=0;l<pr.nl();l++) ofs<<"\tSig("<<l+1<<")";
+    for (unsigned l=0;l<pr.nl();l++) ofs<<"\tUp"<<l+1;
+    for (unsigned l=0;l<pr.nl();l++) ofs<<"\tDown"<<l+1;
+    for (unsigned l=0;l<pr.nl();l++) ofs<<"\tSig"<<l+1;
     ofs<<'\n';
     typedef multimap<double,Sigdat>::const_iterator sigit;
     for (sigit it=sig_mm.begin();/*it->first>0 and*/ it!=sig_mm.end();it++) {
