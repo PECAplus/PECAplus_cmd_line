@@ -98,7 +98,7 @@ with open('normX.txt') as xX, \
             +'\t'+'\t'.join(str(x) for x in DD[i,]) \
             +'\t'+'\t'.join(str(x*(1 if RR[i, n] > RR[i, n-1] else -1)) \
             for n, x in enumerate(CPR[i,], 1)) \
-            +'\t'+'\t'.join(str(x*(1 if RR[i, n] > RR[i, n-1] else -1)) \
+            +'\t'+'\t'.join(str(x*(1 if DD[i, n] > DD[i, n-1] else -1)) \
             for n, x in enumerate(CPD[i,], 1)) \
             +'\t'+'\t'.join(str(FDRMAP[x]) for x in CPR[i,]) \
             +'\t'+'\t'.join(str(FDRMAP_D[x]) for x in CPD[i,]) \
