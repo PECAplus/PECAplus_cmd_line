@@ -20,8 +20,8 @@ NREPS, NTIME = (int(x) for x in open("attr.txt").readline().rstrip().split('\t')
 
 RR = np.zeros((NPROT, NTIME-1))
 for line in (l.rstrip().split('\t') for l in open("s_RR")):
-    RR += np.array(line, dtype=float).reshape(NPROT, NTIME-1)
-RR /= NSAMPLES
+    RR += np.log(np.array(line, dtype=float)).reshape(NPROT, NTIME-1)
+RR = np.exp(RR/NSAMPLES)
 
 
 CPR = np.zeros((NPROT, NTIME-2))
@@ -32,8 +32,8 @@ CPR /= NSAMPLES
 
 DD = np.zeros((NPROT, NTIME-1))
 for line in (l.rstrip().split('\t') for l in open("s_DD")):
-    DD += np.array(line, dtype=float).reshape(NPROT, NTIME-1)
-DD /= NSAMPLES
+    DD += np.log(np.array(line, dtype=float)).reshape(NPROT, NTIME-1)
+DD = np.exp(DD/NSAMPLES)
 
 
 CPD = np.zeros((NPROT, NTIME-2))
