@@ -11,12 +11,9 @@ peca_r_bin: nlopt $(objs)
 	$(CXX) $(objs) -o $@ -L../include_dir/nlopt/lib -lnlopt 
 
 nlopt:
-	cd ../include_dir/nlopt-2.4.2/;\
-	    ./configure --prefix=$(CURDIR)/../include_dir/nlopt;\
-	    $(MAKE) install
+	cd ../include_dir;\
+	    $(MAKE)
 
 .PHONY : clean
 clean :
 	$(RM) peca_r_bin $(objs)
-
-

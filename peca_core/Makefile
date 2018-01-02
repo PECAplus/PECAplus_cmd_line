@@ -8,12 +8,11 @@ CXXFLAGS = -Wall -O3 -I. -std=c++0x -I../include_dir/nlopt/include -I../include_
 $(objs): nlopt
 
 peca_core_bin: nlopt $(objs)
-	$(CXX) $(objs) -o $@ -L$(CURDIR)/../include_dir/nlopt/lib -lnlopt 
+	$(CXX) $(objs) -o $@ -L../include_dir/nlopt/lib -lnlopt 
 
 nlopt:
-	cd $(CURDIR)/../include_dir/nlopt-2.4.2/;\
-	    ./configure --prefix=$(CURDIR)/../include_dir/nlopt;\
-	    $(MAKE) install
+	cd ../include_dir;\
+	    $(MAKE)
 
 .PHONY : clean
 clean :
