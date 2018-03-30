@@ -77,9 +77,11 @@ plt.savefig('trace_loglike.pdf')
 EFSY = dict()
 XAX = []
 with open('EfsY.txt') as efsy:
-    XAX = efsy.readline().rstrip('\n').split('\t')[3:]
+    #XAX = efsy.readline().rstrip('\n').split('\t')[3:]
+    XAX = [float(x) for x in efsy.readline().rstrip('\n').split('\t')[3:]]
     for line in (l.rstrip('\n').split('\t') for l in efsy):
-        EFSY['\t'.join(line[:3])] = line[3:]
+        #EFSY['\t'.join(line[:3])] = line[3:]
+        EFSY['\t'.join(line[:3])] = [float(x) for x in line[3:]]
 
 EFSX = dict()
 #EFSXPATH = Path("EfsX.txt").is_file()
@@ -87,7 +89,8 @@ EFSX = dict()
 with open('EfsX.txt') as efsx:
     efsx.readline()
     for line in (l.rstrip('\n').split('\t') for l in efsx):
-        EFSX['\t'.join(line[:3])] = line[3:]
+        #EFSX['\t'.join(line[:3])] = line[3:]
+        EFSX['\t'.join(line[:3])] = [float(x) for x in line[3:]]
 
 ETAY = np.array(open('mean_xRyD').readline().rstrip().split('\t'), \
         dtype=float).reshape(NPROT, NTIME*NREPS)
